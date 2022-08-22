@@ -1,0 +1,20 @@
+spring:
+    data:
+        cassandra:
+            keyspace-name: quizapp
+            username: SPpZaLpMvjHUuJjXXuaNUROZ
+            password: 0sCwM+AU2eFaS9X4b3-5tRffId.J91qX_bOOgnW2oOJJZ17MnXNbzBak8Zk9gM-00M.Cpq+Ofvlzg-9yPEGaXo_eaLlTYE-SS.1-ULw8jCEXMa+hQkIa2O1lO9nmSBnt
+            schema-action: create-if-not-exists
+            request:
+                timeout: 10s
+            connection:
+                connect-timeout: 10s
+                init-query-timeout: 10s
+datastax.astra:
+    secure-connect-bundle: secure-connect.zip
+astra.db:
+    id: ea6ba093-2306-466e-8a2c-517f5ec837f3-1
+    region: asia-south1
+    keyspace: quizapp
+    application.token: AstraCS:SPpZaLpMvjHUuJjXXuaNUROZ:db70a1c10e54db0b9f53d8b95d08eb39938034f59941ad3ea8eb533096966f78
+

@@ -51,6 +51,11 @@
 			<version>1.9.1</version>
 		</dependency>
 		<dependency>
+			<groupId>com.datastax.astra</groupId>
+			<artifactId>astra-spring-boot-starter</artifactId>
+			<version>0.3.1</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>
 			<version>1.6.4</version>
