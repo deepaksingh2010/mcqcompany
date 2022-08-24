@@ -21,7 +21,6 @@ import lombok.NoArgsConstructor;
 public class ExamTopics {
 
      // CREATE TABLE examtopics (
-     // id INT,
      // exam VARCHAR,
      // subject VARCHAR,
      // topic VARCHAR,
@@ -35,7 +34,7 @@ public class ExamTopics {
      @Data
      public class ExamTopicsKey implements Serializable {
 
-          @PrimaryKeyColumn(name = "id", type = PrimaryKeyType.PARTITIONED)
+          @PrimaryKeyColumn(name = "exam", type = PrimaryKeyType.PARTITIONED)
           private String exam;
 
           @PrimaryKeyColumn(name = "subject")
