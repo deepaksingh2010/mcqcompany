@@ -14,12 +14,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.soartechnosoft.mcqcompany.repository.ExamTopicsRepository;
 import com.soartechnosoft.mcqcompany.util.ExamTopicsService;
 import com.soartechnosoft.mcqcompnay.models.ExamTopics;
+import com.soartechnosoft.mcqcompnay.models.maps.ExamTopicsEntity;
 import com.soartechnosoft.mcqcompnay.models.maps.ExamtopicsMap;
 
 import io.micrometer.core.annotation.Timed;
@@ -34,16 +37,41 @@ public class ExamTopicsController {
     @Autowired
     ExamTopicsService examTopicsService;
 
-    @GetMapping(path = "/hello", produces = "application/json")
-    public @ResponseBody String getBook() {
-        String uts = "1";
-        String utsii = "1";
-        if (uts == utsii) {
-            return "equels";
-        } else {
-            return "! equels";
-        }
 
+    @PostMapping(path = "/{examname}/{topicname}", produces = "application/json")
+    @Timed
+    public @ResponseBody ResponseEntity<HttpStatus> postExamTopics(@RequestBody ExamTopicsEntity examTopicsEntity,@PathVariable String examname,@PathVariable String topicname) {
+
+        try {
+            ExamTopics examTopics=ExamTopics.builder()
+                             .details(examTopicsEntity.getDetails())
+                             .numberofquestions(examTopicsEntity.getNumberofquestions())
+                             .orgname(examTopicsEntity.getOrgname())                             
+                             .build();
+            ExamTopics.ExamTopicsKey key=examTopics.new ExamTopicsKey(examname, examTopicsEntity.getKey().getSubject(), topicname, examTopicsEntity.getKey().getSetupby());
+            examTopics.setKey(key);
+            ExamTopics examTopicsInserted= examTopicsRepository.insert(examTopics);
+            if(logger.isDebugEnabled()){
+                    logger.info("Exam successfully added {}",examTopicsInserted);
+            }
+
+            return new ResponseEntity<HttpStatus>(HttpStatus.CREATED);
+        } catch (CassandraConnectionFailureException ex) {
+            logger.error("exception occored msg {}", ex.getMessage());
+            return new ResponseEntity<HttpStatus>(HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (CassandraReadTimeoutException ex) {
+            logger.error("exception occored msg {}", ex.getMessage());
+            return new ResponseEntity<HttpStatus>(HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (CassandraQuerySyntaxException ex) {
+            logger.error("exception occored msg {}", ex.getMessage());
+            return new ResponseEntity<HttpStatus>(HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (CassandraInternalException ex) {
+            logger.error("exception occored msg {}", ex.getMessage());
+            return new ResponseEntity<HttpStatus>(HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (Exception e) {
+            logger.error("exception occored msg {}", e.getMessage());
+            return new ResponseEntity<HttpStatus>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping(path = "/topics/", produces = "application/json")

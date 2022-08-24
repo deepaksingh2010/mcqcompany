@@ -36,3 +36,5 @@ build/
 src/dockercommands
 src/main/resources/mcqcompanydb/
 src/main/resources/secure-connect.zip
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties

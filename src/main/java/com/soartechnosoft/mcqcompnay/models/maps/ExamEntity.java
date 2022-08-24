@@ -2,8 +2,6 @@ package com.soartechnosoft.mcqcompnay.models.maps;
 
 import java.util.UUID;
 
-import org.springframework.data.cassandra.core.mapping.Column;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
