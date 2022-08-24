@@ -34,7 +34,6 @@ public class ExamTopicsController {
     @Autowired
     ExamTopicsService examTopicsService;
 
-
     @GetMapping(path = "/hello", produces = "application/json")
     public @ResponseBody String getBook() {
         String uts = "1";

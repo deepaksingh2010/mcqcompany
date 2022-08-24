@@ -26,7 +26,7 @@ public class Exams {
      // examname text,
      // setupby uuid,
      // organizingdep text,
-     // "durationofExam" int,
+     // durationofExam int,
      // examdescription text,
      // id uuid,
      // numberofquestions int,

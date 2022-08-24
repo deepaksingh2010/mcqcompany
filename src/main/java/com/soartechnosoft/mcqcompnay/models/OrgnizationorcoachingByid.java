@@ -44,14 +44,14 @@ public class OrgnizationorcoachingByid {
           @PrimaryKeyColumn(name = "city")
           private String city;
 
-          public OrgnizationorcoachingByIdKey(
-                    final UUID id,
-                    final String name,
-                    final String city) {
-               this.id = id;
-               this.name = name;
-               this.city = city;
-          }
+          // public OrgnizationorcoachingByIdKey(
+          //           final UUID id,
+          //           final String name,
+          //           final String city) {
+          //      this.id = id;
+          //      this.name = name;
+          //      this.city = city;
+          // }
           // getters and setters
      }
 

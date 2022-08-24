@@ -16,6 +16,10 @@ import lombok.NoArgsConstructor;
 @Builder
 public class AnswerType {
     
+
+    // answertype (
+    //     answertype text
+    //     );
     @CassandraType(type = Name.TEXT) 
     private String answertypename; 
 }
