@@ -26,6 +26,7 @@ import com.soartechnosoft.mcqcompnay.models.maps.ExamEntity;
 
 import io.micrometer.core.annotation.Timed;
 
+
 @Controller
 @RequestMapping("exam")
 public class ExamsController {
@@ -102,4 +103,5 @@ public class ExamsController {
         }
 
     }
+    
 }
