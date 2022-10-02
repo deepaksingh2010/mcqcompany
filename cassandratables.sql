@@ -130,3 +130,29 @@ CREATE TABLE quizapp.paper (
     examname text,
     PRIMARY KEY ((org, exam),startdate, paperid)
 )
+
+
+CREATE TABLE quizapp.student (
+    name text,
+    phonenumber text,
+    emailid text,
+    org uuid,
+    uniqueid text,
+    exam uuid,
+    create_ts date,
+    loginstatus boolean,
+    createdby uuid,
+    PRIMARY KEY ((emailid),phonenumber)
+) 
+CREATE TABLE quizapp.enrollments(
+    org uuid,
+    exam uuid,
+    paperid uuid,
+    studentemailid text,
+    phonenumber text,
+    status text,
+    PRIMARY KEY((org,exam),paperid,studentemailid)
+);
+
+
+

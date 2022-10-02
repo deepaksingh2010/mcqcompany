@@ -12,6 +12,7 @@ spring:
                 init-query-timeout: 10s
 datastax.astra:
     secure-connect-bundle: secure-connect.zip
+defaultOrgId: 3fa85f64-5717-4562-b3fc-2c963f66afa6
 astra.db:
     id: ea6ba093-2306-466e-8a2c-517f5ec837f3-1
     region: asia-south1

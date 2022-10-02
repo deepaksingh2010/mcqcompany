@@ -2,8 +2,6 @@ package com.soartechnosoft.mcqcompnay.models;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.Duration;
-import java.time.Instant;
 import java.util.UUID;
 
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
@@ -59,6 +57,7 @@ public class Papers {
 
         @PrimaryKeyColumn(name = "paperid")
         private UUID paperid;
+        
         public PapersKey(UUID org,UUID exam,String startdate,UUID paperid){
             this.org=org;
             this.exam=exam;

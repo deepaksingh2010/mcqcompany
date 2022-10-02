@@ -4,13 +4,14 @@ import com.soartechnosoft.mcqcompnay.models.ExamTopics;
 import com.soartechnosoft.mcqcompnay.models.maps.ExamtopicsMap;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 @Service
-public class ExamTopicsService {
-
+public class ExamTopicsService {    
+    
     public List<ExamtopicsMap> getTopicsForUI(Iterable<ExamTopics> lstTopics) {
         List<ExamtopicsMap> lstExamTopicsMap = new ArrayList<ExamtopicsMap>();
         for (ExamTopics examTopics : lstTopics) {
@@ -26,6 +27,6 @@ public class ExamTopicsService {
                             .build());
         }
         return lstExamTopicsMap;
-    }
+    }  
 
 }
